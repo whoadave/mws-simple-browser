@@ -6,7 +6,6 @@
   "dependencies": {
     "browser-request": "^0.3.3",
     "crypto-js": "^3.1.9-1",
-    "csv-parse": "^1.1.1",
     "query-string": "^4.1.0",
     "simple-xml2json": "^1.2.3",
     "xml2js": "^0.4.16"
