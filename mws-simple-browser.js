@@ -4,7 +4,7 @@
 'use strict';
 let crypto = require('crypto-js');
 let request = require('browser-request');
-let xmlParser = require('xml2js').parseString;
+let xml2json = require('simple-xml2json');
 let tabParser = require('csv-parse');
 let qs = require('query-string');
 
@@ -82,9 +82,10 @@ Client.prototype.request = function(requestData, callback) {
 
     if (response.body.slice(0, 5) === '<?xml') {
       // xml2js
-      xmlParser(body, function (err, result) {
-        callback(err, result);
-      });
+      callback(undefined, xml2json.parser(body));
+      //xmlParser(body, function (err, result) {
+        //callback(err, result);
+      //});
     } else {
       // currently only other type of data returned is tab-delimited text
       tabParser(body, {
